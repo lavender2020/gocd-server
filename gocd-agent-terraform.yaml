@@ -26,7 +26,7 @@ pipelines:
             timeout: 0
             environment_variables:
               GOCD_DOMAIN: 10.205.21.149:31057
-              PATTERN: '**/*.yaml'
+              PATTERN: '*.yaml'
               REPO_ID: gocd-server-config
               CONFIG_REPO_URL: https://github.com/lavender2020/gocd-server.git
             secure_variables:
