@@ -24,7 +24,6 @@ pipelines:
         jobs:
           gocd_server_api_config:
             timeout: 0
-            elastic_profile_id: demo-app
             environment_variables:
               GOCD_DOMAIN: 10.205.21.149:31057
               PATTERN: '*.yaml'
