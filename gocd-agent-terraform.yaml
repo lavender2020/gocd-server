@@ -1,0 +1,37 @@
+format_version: 10
+pipelines:
+  gocd-server-config:
+    group: sample
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-0ca63c1:
+        git: https://github.com/lavender2020/gocd-server.git
+        username: lavender2020
+        shallow_clone: false
+        auto_update: true
+        branch: master
+        encrypted_password: AES:F15dwgE7hOak1n8Hcm39bw==:2IxEJNtJqOT92NsBCwQhtg==
+    stages:
+    - test:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          addRepos:
+            timeout: 0
+            environment_variables:
+              GOCD_DOMAIN: 10.205.21.149:31057
+              PATTERN: '**/*.yaml'
+              REPO_ID: gocd-server-config
+              CONFIG_REPO_URL: https://github.com/lavender2020/gocd-server.git
+            secure_variables:
+              access_token: AES:bpsFl4mRA5XKonVZwsytyg==:EhUgoXY94GHc0wLXeKEXonZM/SnG9TARyEKaiSV6+QdqAW25+Hkvbbd3lIN+K+3R
+            tasks:
+            - exec:
+                command: sh add-config-repo.sh $(GOCD_DOMAIN) $(access_token) $(REPO_ID) $(CONFIG_REPO_URL) $(PATTERN)
+                run_if: passed
