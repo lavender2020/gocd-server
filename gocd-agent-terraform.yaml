@@ -4,7 +4,7 @@ pipelines:
     group: sample
     label_template: ${COUNT}
     lock_behavior: none
-    display_order: -1
+    display_order: 1
     materials:
       git-0ca63c1:
         git: https://github.com/lavender2020/gocd-config-api.git
@@ -14,7 +14,7 @@ pipelines:
         branch: master
         encrypted_password: AES:F15dwgE7hOak1n8Hcm39bw==:2IxEJNtJqOT92NsBCwQhtg==
     stages:
-    - test:
+    - config_gocd_server:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
@@ -22,8 +22,9 @@ pipelines:
           type: success
           allow_only_on_success: false
         jobs:
-          addRepos:
+          gocd_server_api_config:
             timeout: 0
+            elastic_profile_id: demo-app
             environment_variables:
               GOCD_DOMAIN: 10.205.21.149:31057
               PATTERN: '*.yaml'
