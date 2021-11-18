@@ -33,5 +33,5 @@ pipelines:
               access_token: AES:bpsFl4mRA5XKonVZwsytyg==:EhUgoXY94GHc0wLXeKEXonZM/SnG9TARyEKaiSV6+QdqAW25+Hkvbbd3lIN+K+3R
             tasks:
             - exec:
-                command: sh add-config-repo.sh $(GOCD_DOMAIN) $(access_token) $(REPO_ID) $(CONFIG_REPO_URL) $(PATTERN)
+                command: bash add-config-repo.sh $(GOCD_DOMAIN) $(access_token) $(REPO_ID) $(CONFIG_REPO_URL) $(PATTERN)
                 run_if: passed
