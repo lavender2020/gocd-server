@@ -7,7 +7,7 @@ pipelines:
     display_order: -1
     materials:
       git-0ca63c1:
-        git: https://github.com/lavender2020/gocd-server.git
+        git: https://github.com/lavender2020/gocd-config-api.git
         username: lavender2020
         shallow_clone: false
         auto_update: true
@@ -33,5 +33,5 @@ pipelines:
               access_token: AES:bpsFl4mRA5XKonVZwsytyg==:EhUgoXY94GHc0wLXeKEXonZM/SnG9TARyEKaiSV6+QdqAW25+Hkvbbd3lIN+K+3R
             tasks:
             - exec:
-                command: bash add-config-repo.sh $(GOCD_DOMAIN) $(access_token) $(REPO_ID) $(CONFIG_REPO_URL) $(PATTERN)
+                command: /bin/bash add-config-repo.sh $(GOCD_DOMAIN) $(access_token) $(REPO_ID) $(CONFIG_REPO_URL) $(PATTERN)
                 run_if: passed
