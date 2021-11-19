@@ -29,7 +29,7 @@ pipelines:
               GOCD_DOMAIN: 10.205.21.149:31057
               PATTERN: '*.yaml'
               REPO_ID: gocd-server-config
-              CONFIG_REPO_URL: https://github.com/lavender2020/gocd-server.git
+              CONFIG_REPO_URL: https://github.com/lavender2020/gocd-config-api.git
             secure_variables:
               access_token: AES:bpsFl4mRA5XKonVZwsytyg==:EhUgoXY94GHc0wLXeKEXonZjiiid
             tasks:
